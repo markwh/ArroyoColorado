@@ -1,0 +1,137 @@
+---
+title: "notebook20160623"
+author: "Mark Hagemann"
+date: "June 23, 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Today I was told to stop working on national-scale stuff and work instead on Arroyo Colorado case study. 
+
+Need to start a new todo list. todo <- TodoList()
+
+
+Task 1 is understanding lidar data. It resides on an external hard drive, which I have soft-linked to data/softlink
+
+```{r}
+ls("package:rLiDAR")
+?rMetrics
+?LASmetrics
+
+fil1 <- system.file("extdata", "LASexample1.las", package = "rLiDAR")
+metrics1 <- LASmetrics(fil1)
+
+metrics1
+glimpse(metrics1)
+```
+
+There's one rather small file (only 99MB) in the LAS folder. Experiment using this.
+
+```{r}
+metrics2 <- LASmetrics("data/ext_softlink/LAS/ibwc_2006_70cm_2697_54_4_b_3.las", 
+                       minht = 0.1)
+glimpse(metrics2)
+```
+
+OK, this package is probably not what I want. It's all about vegetation height and things. 
+
+Unless I can operate manually on the lasfile. 
+
+```{r}
+las1 <- rLiDAR::readLAS("data/ext_softlink/LAS/ibwc_2006_70cm_2697_54_4_b_3.las")
+```
+
+It's a large matrix--looks like the LAS format comresses it some; here it's about 150% the size on disk. What if I write it to an R binary format?
+
+```{r}
+save("las1", file = "data/las1_bin.RData")
+```
+
+Yeah, that compressed it a lot! Now it's only 2.4 MB on disk.
+
+```{r}
+summary(las1)
+
+las1 %>% 
+  as.data.frame() %>% 
+  group_by(ReturnNumber) %>% 
+  summary()
+  glimpse
+```
+
+Try plotting
+
+```{r}
+library(rgl)
+
+dat1 <- las1 %>% 
+  as.data.frame() %>% 
+  filter(ReturnNumber == 1) %>% 
+  mutate(x = scale(X)[, 1], y = scale(Y)[, 1], z = scale(Z)[, 1])
+
+summary(dat1)
+
+with(sample_n(dat1, 1000), surface3d(x, y, z))
+```
+
+Try some more. Contour plots?
+
+```{r}
+#with(dat1, contour(interp(X, Y, Z, duplicate = "median")))
+```
+
+That took a couple of minutes to run.
+
+Can I plot a convex hull?
+
+```{r}
+chull1 <- chull(dat1$X, dat1$Y)
+
+plot(Y ~ X, dat1[chull1, ], type = "l")
+```
+
+OK, that's good. What can I learn about lidar data from the readLAS function?
+
+```{r}
+readLAS
+```
+
+Well the matrix isn't all that's stored in the file. See what else:
+
+```{r}
+las2 <- rLiDAR::readLAS("data/ext_softlink/LAS/ibwc_2006_70cm_2697_54_4_b_3.las",
+                        short = FALSE)
+str(las2, 1)
+head(las2)
+```
+
+OK, not much new information here. It's still a large matrix, but with the following additional columns: "NumberOfReturns"   "ScanDirectionFlag" "EdgeofFlightLine"  "Classification"  "ScanAngleRank"     "UserData"          "PointSourceID"     "gpstime" 
+Although classification might be useful.
+
+```{r}
+save("las2", file = "data/las2_bin.RData")
+```
+
+Now I'll try a larger file. The next smallest is 10x the size of the last one. 
+
+```{r}
+las3 <- readLAS("data/ext_softlink/LAS/ibwc_2006_70cm_2697_46_1_b_2.las")
+pryr::object_size(las3)
+dim(las3)
+save("las3", file = "data/las3_bin.RData")
+```
+
+148 MB when in memory, but compresses to 19 MB on disk. 
+
+todo$add("georeference LAS data")
+todo$add("plot convex hull for each file")
+
+```{r}
+
+
+lasChull <- function(file)
+```
+

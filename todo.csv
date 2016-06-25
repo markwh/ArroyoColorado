@@ -2,3 +2,5 @@
 "plot a LAS file",2016-06-23 12:42:07,NA,FALSE,1
 "georeference LAS data",2016-06-23 13:19:42,NA,FALSE,2
 "plot convex hull for each file",2016-06-23 13:22:09,NA,FALSE,3
+"Read metadata documentation",2016-06-24 12:08:36,NA,FALSE,4
+"get NHD flowlines used in NWM from Fernando",2016-06-24 12:28:59,NA,FALSE,5

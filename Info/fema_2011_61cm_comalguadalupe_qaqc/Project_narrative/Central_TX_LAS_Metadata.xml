@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <idinfo>
+    <citation>
+      <citeinfo>
+        <origin>RAMPP, Fugro Earthdata Inc., and Tuck Mapping Solutions, Inc.</origin>
+        <pubdate>Unpublished Material</pubdate>
+        <title>Central Texas RiskMap   
+        </title>
+        <geoform>LAS Files</geoform>
+      </citeinfo>
+    </citation>
+    <descript>
+      <abstract>
+      		LiDAR collected at 1.0 points per square meter (1.0m GSD) for Comal and Guadalupe County Texas covering or portions of Blanco, Hays, Kendall, Comal, Guadalupe, Gonzales, Bexar, and Wilson Counties TX.  This area was flown during snow free and leaf-off conditions. 
+       </abstract>
+      <purpose>
+      	Classified LAS files are used to show the manually reviewed bare earth surface.
+      </purpose>
+    </descript>
+    <timeperd>
+      <timeinfo>
+        <rngdates>
+          <begdate>20101120</begdate>
+          <enddate>20101206</enddate>
+        </rngdates>
+      </timeinfo>
+      <current>Ground Condition</current>
+    </timeperd>
+    <status>
+      <progress>Complete</progress>
+      <update>Unknown</update>
+    </status>
+    <spdom>
+      <bounding>
+        <westbc>-98.673315</westbc>
+        <eastbc>-98.673315</eastbc>
+        <northbc>-98.673315</northbc>
+        <southbc>-98.673315</southbc>
+      </bounding>
+    </spdom>
+    <keywords>
+      <theme>
+        <themekt>none</themekt>
+        <themekey>Model</themekey>
+        <themekey>LiDAR</themekey>
+        <themekey>LAS Point Cloud</themekey>
+        <themekey>Remote Sensing</themekey>
+        <themekey>Elevation</themekey>
+        <themekey>Land Surface</themekey>
+        <themekey>Relief</themekey>
+        <themekey>Topography</themekey>
+        <themekey>Digital Terrain Model</themekey>
+        <themekey>Elevation Data</themekey>
+        <themekey>Slope</themekey>
+        <themekey>Breaklines</themekey>
+        <themekey>Contours</themekey>
+        <themekey>DEM</themekey>
+        <themekey>Flow Vectors</themekey>
+      </theme>
+      <place>
+        <placekt>None</placekt>
+        <placekey>Region 6</placekey>
+        <placekey>State TX</placekey>
+        <placekey>County Blanco</placekey>
+        <placekey>County Hays</placekey>
+        <placekey>County Kendall</placekey>
+        <placekey>County Comal</placekey>
+        <placekey>County Guadalupe</placekey>
+        <placekey>County Gonzales</placekey>
+        <placekey>County Bexar</placekey>
+        <placekey>County Wilson</placekey>
+      </place>
+    </keywords>
+    <accconst>None</accconst>
+    <useconst>
+    		None. 
+    </useconst>
+    <datacred>Fugro EarthData, Inc. flew the LiDAR data. Tuck Mapping Solutions, Inc. processed the LiDAR data.</datacred>
+    <native>
+    		MicroStation Version 8; TerraScan Version 10; Optech DASHMap 4.1801; TerraModeler Version 10; 
+    		GeoCue Version 6.1.21.4; ESRI ArcGIS 9.3.1; Global Mapper Version 11.02; ALS Post Processor 2.70 Build #15; Windows XP Operating System
+    </native>
+  </idinfo>
+  <dataqual>
+    <attracc>
+        <attraccr>During the data acquisition missionҀs airborne GPS (ABGPS) data was recorded at 2 Hz and Positional Dilution of Precision (PDOP) for the ABGPS was monitored to make sure there were no problematic spikes. One GPS base station was also running during the data collection at the operation airport and was recording data at 1 Hz. The airborne GPS data was post-processed in DGPS mode together with the base station data to provide high accuracy aircraft positions. The GPS trajectory then was combined with the IMU data using loosely coupled approach to yield high accuracy aircraft positions and attitude angles. Then the LIDAR data was processed using the aircraft trajectory and raw LIDAR data. After boresighting the LIDAR data, 28 ground control points were measured against the LIDAR data by technicians using Terrascan and proprietary software and the LIDAR data was adjusted vertically to the ground control. Independent ground control check points were used to ensure vertical accuracy of the data.
+
+The horizontal datum for the control was the North American Datum of 1983 (NAD83, NSRS2007).
+The vertical datum was the North American Vertical Datum of 1988 (NAVD88). The vertical datum was realized through the use of the published/calculated ellipsoidal heights of the base station to calculate the aircraft trajectory and then later applying the GEOID09 model to the processed LIDAR data to obtain orthometric heights. 
+</attraccr> 
+    </attracc>
+    <logic>The following checks were performed.
+1. The lidar data accuracy was validated by performing a full boresight adjustment and then checking it against the ground control prior to generating a digital terrain model (DTM) or other products.
+2. LIDAR elevation data was validated through an inspection of edge matching and visual inspection for quality (artifact removal).
+</logic>
+    <complete>The following methods are used to ensure LIDAR data accuracy:
+1. Use of a ground control network utilizing GPS survey techniques.
+2. Use of airborne GPS and IMU in conjunction with the acquisition of LIDAR.
+3. Measurement of quality control ground survey points within the finished product. 
+The following software is used for the validation
+		1. Terrascan
+</complete>
+    <posacc>
+      <vertacc>
+        <vertaccr> All data are seamless from one tile to the next, no gaps or no data areas.  
+        The vertical unit of the data file is in meters.</vertaccr>
+        <qvertpa>
+           <vertaccv>0.06</vertaccv>
+           <vertacce>RMSE in meters</vertacce>
+        </qvertpa>
+      </vertacc>
+    </posacc>
+    <lineage>
+    			<procstep>
+    			<procdesc>TerraSurv under contract to Fugro EarthData, Inc. successfully established ground control for the Central TX AOI.  A total of 36 ground control points in the Central TX AOI were acquired.  GPS was used to establish the control network.  The horizontal datum was the North American Datum of 1983, 2007 adjustment (NAD83/2007).  The vertical datum was the North American Vertical Datum of 1988 (NAVD88).</procdesc>
+    			<procdate>20110223</procdate>
+    			<srcprod>Ground Control</srcprod>
+    			</procstep>
+    			<procstep>
+    <procdesc>The Fugro EarthData, Inc. acquisition team collected ALS60 derived lidar over the Central TX AOI with a 1m, nominal post spacing using a Piper Model PA-31-350 aircraft. The collection for the entire project area was accomplished from November 20, 2010 through December 6, 2010. The collection was performed using a Leica ALS60 MPiA lidar system, serial number ALS142, including an inertial measuring unit (IMU) and a dual frequency GPS receiver. This project required 8 lifts of flight lines to be collected. The lines were flown at an average of 6,000 feet above mean terrain using a maximum pulse rate frequency of 123,700 Hz.  The sensor had a 34 degree FOV and a scan rate of 40.</procdesc>
+    			<procdate>20110405</procdate>
+    			<srcprod>raw lidar</srcprod>
+    			</procstep>
+    			<procstep>
+    				<procdesc>1. Lidar, GPS, and IMU data was processed together using lidar processing software.
+    2. The lidar data set for each flight line was checked for project area coverage and lidar post spacing was checked to ensure it meets project specifications.
+    3. The lidar collected at the calibration area and project area were used to correct the rotational, atmospheric, and vertical elevation differences that are inherent to lidar data.
+    4. Intensity rasters were generated to verify that intensity was recorded for each lidar point.
+    5. Lidar data was transformed to the specified project coordinate system.
+    6. By utilizing the ground survey data collected at the calibration site and project area, the lidar data was vertically biased to the ground.
+    7. Comparisons between the biased lidar data and ground survey data within the project area were evaluated and a final RMSE value was generated to ensure the data meets project specifications.</procdesc>
+    				<procdate>20110501</procdate>
+    			</procstep>
+    			<procstep>
+    				<procdesc>The calibrated and filtered LiDAR point cloud was hand checked for accuracy.  All points were placed in one of the following categories: 1 Unclassified, 2 Ground, 7 Noise, 9 Water, 10 Ignored Ground and 11 Withheld. Following classification of LiDAR data, hydrographic features were collected in the LP360 software.  Rivers (more than 33m in width) and Lakes (more than 2 acres in area) were collected as polygon features directly from surface models generated from the Ground classification.  Since elevations were not part of the final deliverable, polygons were delivered as 2d features in an ESRI 9.3 File GeoDatabase. Low Confidence areas were generated through grid analysis based on the final point density of ground shots.  The overall project was gridded at a 5m cell size, with each cell value (z) representing points per meter.  Grids were then converted to shapefiles, where values equal to 0 or more than 0.5 ppm were ignored.  The remaining values were then dissolved utilizing FME software.  Dissolved polygons were then tested for area, with all polygons of less than 500 square meters removed from the final dataset.  Low confidence areas were delivered as 2d features in ESRI 9.3 File GeoDatabase format.</procdesc>
+    				<srcused>raw lidar</srcused>
+    				<procdate>20110731</procdate>
+    				<srcprod>classified lidar</srcprod>
+    				<proccont>
+    					<cntinfo>
+    						<cntperp>
+    							<cntper>Steven Jones</cntper>
+    							<cntorg>Tuck Mapping Solutions, Inc.</cntorg>
+    						</cntperp>
+    						<cntpos>Project Manager</cntpos>
+    						<cntaddr>
+    							<addrtype>mailing address</addrtype>
+    							<address>P.O. Box 760</address>
+    							<city>Big Stone Gap</city>
+    							<state>VA</state>
+    							<postal>24219</postal>
+    						</cntaddr>
+    						<cntvoice>(276) 523-4673</cntvoice>
+    						<cntfax>(276) 523-4673</cntfax>
+    						<cntemail>sjones@tuckmapping.com</cntemail>
+    						<hours>Monday through Friday, 8:00am to 5:00pm</hours>
+    					</cntinfo>
+    				</proccont>
+    			</procstep>
+			</lineage>
+  </dataqual>
+  <spref>
+  <horizsys>
+  <planar>
+  <gridsys>
+  <gridsysn>Universal Transverse Mercator</gridsysn>
+  <utm>
+  <utmzone>14</utmzone>
+  <transmer>
+  <sfctrmer>0.999600</sfctrmer>
+  <longcm>-99.000000</longcm>
+  <latprjo>0.000000</latprjo>
+  <feast>500000.000000</feast>
+  <fnorth>0.000000</fnorth>
+  </transmer>
+  </utm>
+  </gridsys>
+  <planci>
+  <plance>coordinate pair</plance>
+  <coordrep>
+  <absres>0.000000</absres>
+  <ordres>0.000000</ordres>
+  </coordrep>
+  <plandu>meters</plandu>
+  </planci>
+  </planar>
+  <geodetic>
+  <horizdn>North American Datum of 1983</horizdn>
+  <ellips>Geodetic Reference System 80</ellips>
+  <semiaxis>6378137.000000</semiaxis>
+  <denflat>298.257222</denflat>
+  </geodetic>
+  </horizsys>
+  <vertdef>
+  <altsys>
+  <altdatum>North American Vertical Datum of 1988</altdatum>
+  <altres>1</altres>
+  <altunits>meters</altunits>
+  <altenc>Explicit elevation coordinate included with horizontal coordinates</altenc>
+  </altsys>
+</vertdef>
+</spref>
+  <eainfo>
+    <overview>
+      <eaover>LAS 1.2 files (ASPRS Classes (1,2,7,9,10,11)</eaover>
+      <eadetcit>All deliverables meet specifications in contract.  LAS Files meet ASPRS Classification Standards.</eadetcit>
+    </overview>
+  </eainfo>
+  <metainfo>
+    <metd>20110927</metd>
+<metc>
+<cntinfo>
+<cntorgp>
+<cntorg>Tuck Mapping Solutions, Inc.</cntorg>
+<cntper>Steven Jones</cntper>
+</cntorgp>
+<cntpos>Project Manager</cntpos>
+<cntaddr>
+<addrtype>mailing address</addrtype>
+<address>P.O. Box 760</address>
+<city>Big Stone Gap</city>
+<state>VA</state>
+<postal>24219</postal>
+<country>US</country>
+</cntaddr>
+<cntvoice>(276) 523-4669</cntvoice>
+</cntinfo>
+</metc>
+    <metstdn>FGDC Content Standard for Digital Geospatial Metadata</metstdn>
+    <metstdv>FGDC-STD-001-1998</metstdv>
+  </metainfo>
+</metadata>

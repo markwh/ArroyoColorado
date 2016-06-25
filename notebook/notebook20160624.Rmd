@@ -1,0 +1,45 @@
+---
+title: "notebook20160624"
+author: "Mark Hagemann"
+date: "June 24, 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+What is naming convention?
+
+- Run metadata through validation on [this site](http://geo-nsdi.er.usgs.gov/validation/)
+
+```{r}
+library(rcmodel)
+rcmodel:::bbox(-98.7, 
+               29.3,
+               -97.5,
+               30.1)
+```
+
+### Evening
+
+Playing around with DEM data on Roger server.
+
+Looks like best way to deal with (view and process) many large rasters is to create a virtual raster and then build an overview on this. See:
+
+- [here for overviews](http://www.gdal.org/gdaladdo.html)
+- [here](http://www.gdal.org/gdalbuildvrt.html) and [here](http://www.gdal.org/gdal_vrttut.html) for virtual rasters
+- [here](http://gis.stackexchange.com/questions/52367/best-way-to-handle-many-raster-files-in-qgis) for recommendation of using both
+
+Currently doing this for a subset of the DEM files (20 or so?) using roger. Building the virtual raster was relatively quick (a few seconds); making the overview took a couple minutes. 
+
+For viewing, I think I'll try connecting my local qgis to the server. Based on [this](https://tripgis.wordpress.com/2015/02/19/creating-a-remote-postgis-backend-to-use-with-qgis/).
+
+It works! Some notes:
+
+- I used [sshfs](https://www.digitalocean.com/community/tutorials/how-to-use-sshfs-to-mount-remote-file-systems-over-ssh) to mount the remote server as if it were on my filesystem
+    - make sure to use `-o allow_other`
+- qgis needs the original virtual raster (.vrt), not the overview (.ovr) in order for it to plot in the proper location. Not sure if this is the proper way--is it still using the overview for its benefits?
+- The overview may not have the correct "breaks". Play around with these options. 
+
+Anyway, calling it a night. 

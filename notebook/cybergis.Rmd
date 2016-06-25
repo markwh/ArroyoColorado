@@ -1,0 +1,31 @@
+---
+title: "CyberGIS Workshop"
+author: "Mark Hagemann"
+date: "June 24, 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(leaflet)
+library(rgdal)
+library(raster)
+library(rasterVis)
+library(ggplot2)
+```
+
+```{r}
+ls("package:rasterVis")
+
+s <- raster("~/DEMdd.tif")
+
+theme_set(theme_bw())
+gplot(s) + geom_tile(aes(fill = value)) +
+          facet_wrap(~ variable) +
+          scale_fill_gradient(low = 'white', high = 'blue') +
+          coord_equal()
+```
+

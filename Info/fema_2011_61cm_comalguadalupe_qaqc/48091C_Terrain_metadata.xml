@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <idinfo>
+    <citation>
+      <citeinfo>
+        <origin>RAMPP</origin>
+        <pubdate>20110930</pubdate>
+        <title>DCS Terrain Submission for Central Texas (Comal County and Guadalupe County,TX)</title>
+        <geoform>FEMA-DCS-Terrain</geoform>
+        <pubinfo>
+          <pubplace>Denton, TX</pubplace>
+          <publish>Federal Emergency Management Agency</publish>
+        </pubinfo>
+        <onlink>http://hazards.fema.gov</onlink>
+        <lworkcit>
+          <citeinfo>
+            <origin>Federal Emergency Management Agency</origin>
+            <pubdate>20110930</pubdate>
+            <title>FEMA CASE 11-06-1551S</title>
+          </citeinfo>
+        </lworkcit>
+      </citeinfo>
+    </citation>
+    <descript>
+      <abstract>Terrain data, as defined in FEMA Guidelines and Specifications, Appendix M: Data Capture Standards, describe the digital topographical data that were used to create the elevation data representing the terrain environment of a watershed and/or floodplain.  Terrain data requirements allow for flexibility in the types of information provided as sources used to produce the final terrain deliverables.  Once this type of data is provided, FEMA will be able to account for the origins of the flood study elevation data (Source: FEMA Guidelines and Specifications, Appendix M, Section M.4)</abstract>
+      <purpose>Terrain data is used to represent the topography of a watershed and/or floodplain environment and to extract useful information for hydraulic and hydrologic models. (Source: FEMA Guidelines and Specs, Appendix M)</purpose>
+    </descript>
+    <timeperd>
+      <timeinfo>
+        <sngdate>
+          <caldate>20110930</caldate>
+        </sngdate>
+      </timeinfo>
+      <current>MIP Submission Date</current>
+    </timeperd>
+    <status>
+      <progress>In work</progress>
+      <update>Unknown</update>
+    </status>
+    <spdom>
+      <bounding>
+        <westbc>-98.7</westbc>
+        <eastbc>-97.5</eastbc>
+        <northbc>30.1</northbc>
+        <southbc>29.3</southbc>
+      </bounding>
+    </spdom>
+    <keywords>
+      <theme>
+        <themekt>ISO 19115 Topic Category</themekt>
+        <themekey>elevation</themekey>
+      </theme>
+      <theme>
+        <themekt>FEMA NFIP Topic Category</themekt>
+        <themekey>Land Surface</themekey>
+        <themekey>Relief</themekey>
+        <themekey>Topography</themekey>
+        <themekey>Digital Terrain Model</themekey>
+        <themekey>Elevation Data</themekey>
+        <themekey>Slope</themekey>
+        <themekey>LIDAR</themekey>
+        <themekey>DEM</themekey>
+        <themekey>Breaklines</themekey>
+        <themekey>LAS Point Cloud</themekey>
+        <themekey>Remote Sensing</themekey>
+        <themekey>Flow Vectors</themekey>
+      </theme>
+      <place>
+        <placekt>None</placekt>
+        <placekey>REGION 06</placekey>
+        <placekey>STATE TX</placekey>
+        <placekey>COUNTY COMAL</placekey>
+        <placekey>COUNTY-FIPS 091</placekey>
+        <placekey>FEMA-CID 48091C</placekey>
+        <placekey>COUNTY GUADALUPE</placekey>
+        <placekey>COUNTY-FIPS 187</placekey>
+        <placekey>FEMA-CID 48187C</placekey>
+        <placekey>COMMUNITY COMAL COUNTY UNINCORPORATED AREAS</placekey>
+        <placekey>FEMA-CID 485463</placekey>
+        <placekey>COMMUNITY CITY OF SELMA</placekey>
+        <placekey>FEMA-CID 480046</placekey>
+        <placekey>COMMUNITY CITY OF GARDEN RIDGE</placekey>
+        <placekey>FEMA-CID 480148</placekey>
+        <placekey>COMMUNITY CITY OF SCHERTZ</placekey>
+        <placekey>FEMA-CID 480269</placekey>
+        <placekey>COMMUNITY CITY OF FAIR OAKS RANCH</placekey>
+        <placekey>FEMA-CID 481644</placekey>
+        <placekey>COMMUNITY CITY OF BULVERDE</placekey>
+        <placekey>FEMA-CID 481681</placekey>
+        <placekey>COMMUNITY CITY OF NEW BRAUNFELS</placekey>
+        <placekey>FEMA-CID 485493</placekey>
+        <placekey>COMMUNITY GUADALUPE COUNTY UNINCORPORATED AREAS</placekey>
+        <placekey>FEMA-CID 480266</placekey>
+        <placekey>COMMUNITY CITY OF SANTA CLARA</placekey>
+        <placekey>FEMA-CID 480013</placekey>
+        <placekey>COMMUNITY CITY OF CIBOLO</placekey>
+        <placekey>FEMA-CID 480267</placekey>
+        <placekey>COMMUNITY CITY OF MARION</placekey>
+        <placekey>FEMA-CID 480268</placekey>
+        <placekey>COMMUNITY CITY OF NEW BERLIN</placekey>
+        <placekey>FEMA-CID 481625</placekey>
+        <placekey>COMMUNITY CITY OF SEGUIN</placekey>
+        <placekey>FEMA-CID 485508</placekey>
+        <placekey>COMMUNITY CITY OF STAPLES</placekey>
+        <placekey>FEMA-CID 481529</placekey>
+        <placekey>HYDROLOGIC UNIT 12100201</placekey>
+        <placekey>HYDROLOGIC UNIT 12100202</placekey>
+        <placekey>HYDROLOGIC UNIT 12100203</placekey>
+        <placekey>HYDROLOGIC UNIT 12100301</placekey>
+        <placekey>HYDROLOGIC UNIT 12100303</placekey>
+        <placekey>HYDROLOGIC UNIT 12100304</placekey>
+      </place>
+    </keywords>
+    <accconst>None</accconst>
+    <useconst>Acknowledgement of FEMA would be appreciated in products derived from these data.  This digital data is produced for the purposes of updating/creating a DFIRM database.</useconst>
+  </idinfo>
+  <dataqual>
+    <logic>The Terrain data are consistent with the Elevation dataset. A comparison of profile plots with the flow vector data confirms that flow vectors are correctly drawn. Flood hazard boundaries do not extend beyond the External Boundary, if exists. FIRM panels show the flood hazard area delineations where Island data are present.</logic>
+    <complete>Data contained in the Terrain package highlights specific issues in the Elevation datasets. Terrain data are derived datasets that aid automated hydrologic and hydraulic analyses, the flood hazard area boundary delineations, and quality control.</complete>
+    <posacc>
+      <vertacc>
+        <vertaccr>Classified LAS were tested by Fugro EarthData for both vertical and horizontal accuracy.  All data are seamless from one tile to the next, no gaps or no data areas.  The vertical unit of the data files is in meters</vertaccr>
+        <qvertpa>
+          <vertaccv>0.06</vertaccv>
+          <vertacce>RMSE in meters</vertacce>
+        </qvertpa>
+      </vertacc>
+    </posacc>
+    <lineage>
+      <srcinfo>
+        <srccite>
+          <citeinfo>
+            <origin>LAS</origin>
+            <pubdate>20110930</pubdate>
+            <title>Masspoints</title>
+          </citeinfo>
+        </srccite>
+        <typesrc>disc</typesrc>
+        <srctime>
+          <timeinfo>
+            <sngdate>
+              <caldate>20110930</caldate>
+            </sngdate>
+          </timeinfo>
+          <srccurr>publication date</srccurr>
+        </srctime>
+        <srccitea>VARIABLE-SPACING1</srccitea>
+        <srccontr>Masspoints were derived from the cleaned LiDAR dataset.  These files are the basis for the digital terrain models used for this study.  All other available data is sourced in metadata created by Fugro EarthData, Inc named Central_TX_LAS_Metadata.</srccontr>
+      </srcinfo>
+      <procstep>
+        <procdesc>The masspoints were derived from LiDAR Class 2 only and were used for producing terrain data which is necessary for creating an elevation surface for GIS-based/automatic hydraulic modeling and multipoint feature class was created from the LiDAR masspoints using the ESRI Import Feature Class tool.  Point spacing was defined at 2 ft.  The default values for pyramid levels were selected, for a total of 6 pyramid levels (0.25, 0.5, 1, 2, 5, 10).  Bare-earth (Z-level zero) is automatically created.  A clipping polygon was used to define the extents of the Digital Terrain Model (DTM).</procdesc>
+        <procdate>20110930</procdate>
+      </procstep>
+    </lineage>
+  </dataqual>
+  <spref>
+    <horizsys>
+      <planar>
+        <gridsys>
+          <gridsysn>Universal Transverse Mercator</gridsysn>
+          <utm>
+            <utmzone>14</utmzone>
+            <transmer>
+              <sfctrmer>0.999600</sfctrmer>
+              <longcm>-93</longcm>
+              <latprjo>0.000</latprjo>
+              <feast>500000.00</feast>
+              <fnorth>0.0</fnorth>
+            </transmer>
+          </utm>
+        </gridsys>
+        <planci>
+          <plance>coordinate pair</plance>
+          <coordrep>
+            <absres>0.304801</absres>
+            <ordres>0.304801</ordres>
+          </coordrep>
+          <plandu>meters</plandu>
+        </planci>
+      </planar>
+      <geodetic>
+        <horizdn>North American Datum of 1983</horizdn>
+        <ellips>Geodetic Reference System 80</ellips>
+        <semiaxis>6378137</semiaxis>
+        <denflat>298.25</denflat>
+      </geodetic>
+    </horizsys>
+    <vertdef>
+      <altsys>
+        <altdatum>North American Vertical Datum of 1988</altdatum>
+        <altres>1</altres>
+        <altunits>Meters</altunits>
+        <altenc>Explicit elevation coordinate included with horizontal coordinates</altenc>
+      </altsys>
+    </vertdef>
+  </spref>
+  <eainfo>
+    <detailed>
+      <enttyp>
+        <enttypl>Masspoints</enttypl>
+        <enttypd>A standard LiDAR deliverable containing elevation information.</enttypd>
+        <enttypds>FEMA Guidelines and Specifications for Flood Hazard Mapping Partners, Appendix M: Data Capture Standards(available at http://www.fema.gov/fhm/dl_cgs.shtm)</enttypds>
+      </enttyp>
+    </detailed>
+    <overview>
+      <eaover>The Terrain data package is made up of several data themes containing primarily spatial information. These data supplement the Elevation datasets by providing additional information to aid flood risk evaluation and flood hazard area delineations.</eaover>
+      <eadetcit>Appendix M of FEMA Guidelines and Specifications for FEMA Flood Hazard Mapping Partners contains a detailed description of the data themes and references to other relevant information.</eadetcit>
+    </overview>
+  </eainfo>
+  <distinfo>
+    <distrib>
+      <cntinfo>
+        <cntorgp>
+          <cntorg>FEMA, Map Service Center</cntorg>
+        </cntorgp>
+        <cntaddr>
+          <addrtype>mailing</addrtype>
+          <address>P.O Box 1038</address>
+          <city>Jessup</city>
+          <state>Maryland</state>
+          <postal>20794</postal>
+          <country>USA</country>
+        </cntaddr>
+        <cntvoice>1-877-336-2627</cntvoice>
+        <cntemail>miphelp@riskmapcds.com</cntemail>
+      </cntinfo>
+    </distrib>
+    <distliab>No warranty expressed or implied is made by FEMA regarding the utility of the data on any other system nor shall the act of distribution constitute any such warranty.</distliab>
+    <stdorder>
+      <digform>
+        <digtinfo>
+          <formname>FEMA-DCS-Terrain</formname>
+        </digtinfo>
+        <digtopt>
+          <onlinopt>
+            <computer>
+              <networka>
+                <networkr>http://hazards.fema.gov</networkr>
+              </networka>
+            </computer>
+          </onlinopt>
+        </digtopt>
+      </digform>
+      <fees>Contact Distributor</fees>
+    </stdorder>
+  </distinfo>
+  <metainfo>
+    <metd>20110930</metd>
+    <metc>
+      <cntinfo>
+        <cntperp>
+          <cntper>Regional Support Center - VI Coordinator</cntper>
+          <cntorg>RAMPP</cntorg>
+        </cntperp>
+        <cntaddr>
+          <addrtype>mailing</addrtype>
+          <address>723 North Interstate 35 E Suite 230</address>
+          <city>Denton</city>
+          <state>Texas</state>
+          <postal>76205</postal>
+          <country>USA</country>
+        </cntaddr>
+        <cntvoice>1-940-735-3322</cntvoice>
+        <cntemail>miphelp@riskmapcds.com</cntemail>
+      </cntinfo>
+    </metc>
+    <metstdn>FGDC Content Standards for Digital Geospatial Metadata</metstdn>
+    <metstdv>FGDC-STD-001-1998</metstdv>
+    <metextns>
+      <onlink>http://hazards.fema.gov</onlink>
+      <onlink>http://www.epsg.org</onlink>
+      <metprof>FEMA NFIP Metadata Content and Format Standard</metprof>
+    </metextns>
+  </metainfo>
+</metadata>
+

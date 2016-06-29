@@ -1,0 +1,25 @@
+---
+title: "notebook20160627"
+author: "Mark Hagemann"
+date: "June 27, 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Today working more on DEM and cyberGIS.
+
+- Building a raster index, following [this](http://www.gdal.org/gdaltindex.html)
+- Eventually uploading all DEMs to Roger
+
+todo$add("upload all DEMs to Roger")
+todo$add("build DEM index shapefile")
+
+Some further notes on sshfs following troubleshooting
+
+- use `-o reconnect,idmap=user,password_stdin,dev,suid` (from [here](http://unix.stackexchange.com/a/41029))
+- use `-o ServerAliveInterval 15` (from [here](https://blog.nelhage.com/2008/03/automounting-sshfs/))
+
+So my mounting command is `sudo sshfs $ROGER: /mnt/roger -o reconnect -o ServerAliveInterval 15 -o allow_other`

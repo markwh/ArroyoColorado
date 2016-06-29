@@ -1,0 +1,76 @@
+---
+title: "notebook20160628"
+author: "Mark Hagemann"
+date: "June 28, 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Today doing cyberGIS operations
+
+- `gdalbuildvrt `
+
+
+The following was output from `gdalinfo -approx_stats ibwc06vrt.vrt`
+
+```
+Origin = (1146459.639579999959096,16691800.074819998815656)
+Pixel Size = (3.280839999999928,-3.280839999999928)
+Corner Coordinates:
+Upper Left  ( 1146459.640,16691800.075) ( 98d 0'15.12"W, 26d27'25.54"N)
+Lower Left  ( 1146459.640,16464749.543) ( 98d 0'24.88"W, 25d49'56.84"N)
+Upper Right ( 1431348.100,16691800.075) ( 97d 8' 0.50"W, 26d27' 4.72"N)
+Lower Right ( 1431348.100,16464749.543) ( 97d 8'27.41"W, 25d49'36.13"N)
+Center      ( 1288903.870,16578274.809) ( 97d34'16.96"W, 26d 8'33.21"N)
+Band 1 Block=128x128 Type=Float32, ColorInterp=Undefined
+  Minimum=-1.120, Maximum=31.320, Mean=7.123, StdDev=5.569
+  NoData Value=-32767
+  Metadata:
+    STATISTICS_MAXIMUM=31.319999694824
+    STATISTICS_MEAN=7.123044142976
+    STATISTICS_MINIMUM=-1.1200000047684
+    STATISTICS_STDDEV=5.56868910737
+```
+
+Currently building overview on virtual raster. Command is
+
+```
+gdaladdo -r average --config COMPRESS_OVERVIEW DEFLATE $vrtname 2 4 8 16
+```
+
+Might want to try extending to larger levels if this is slow to render. For example, try 2 4 8 16 32 64 128
+
+Well the internet connection cut out after about 15% completion on the overview calculation.
+
+- Trying to keep it running after logout. Using advice [here](http://stackoverflow.com/a/954415)
+    - Didn't work in this case, since `qsub` exists on disconnect. Need to learn more about this. todo$add("Read up on qsub")
+    
+### Re: PBS, qsub
+
+Learning from [NASA knowledgebase](http://www.nas.nasa.gov/hecc/support/kb/commonly-used-pbs-commands_174.html)
+
+- use `nohup` to not hang up a process when (forced) logout?
+
+For Roger specifically, see [the user guide](https://wiki.ncsa.illinois.edu/display/ROGER/ROGER+User+Guide)
+
+- uses [Torque resource manager](http://www.adaptivecomputing.com/products/open-source/torque/)
+
+Finding some stuff on TauDEM at the [user guide](https://wiki.cigi.illinois.edu/display/DOC/TauDEM+User+Guide)
+
+
+### Now working on building pyramids
+
+- For ibwc 2006 data (small files) this is super quick.
+- For larger files (ibwc 2011, usgs) this is super slow.
+- Trying using GCC parallel
+    - just 2006 data
+    - command is `find . -name ibwc_2006\*.dem | parallel "gdaladdo -r average --config COMPRESS_OVERVIEW DEFLATE {} 2 4 8 16 32 64 128`
+- Then make vrt file
+- Then try plotting in qgis
+    - **Didn't make it feasible--freezes**
+- Try making overview from individual overview files
+    - That works.
+- Still need to make overview of large vrt. Try this on macbook. Then call it a night. 

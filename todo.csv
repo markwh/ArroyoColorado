@@ -4,3 +4,5 @@
 "plot convex hull for each file",2016-06-23 13:22:09,NA,FALSE,3
 "Read metadata documentation",2016-06-24 12:08:36,NA,FALSE,4
 "get NHD flowlines used in NWM from Fernando",2016-06-24 12:28:59,NA,FALSE,5
+"upload all DEMs to Roger",2016-06-27 10:30:13,NA,FALSE,6
+"build DEM index shapefile",2016-06-27 10:30:14,NA,FALSE,7

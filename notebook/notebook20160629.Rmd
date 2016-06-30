@@ -1,0 +1,297 @@
+---
+title: "notebook20160629"
+author: "Mark Hagemann"
+date: "June 29, 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Today: working more on learning qsub
+
+- Run a batch file (non-interactive)
+- See if it's tolerant to internet interrupts
+
+### Test batch file
+
+```
+#!/bin/bash
+# declare a name for this job to be sample_job
+#PBS -N sample_job
+# request a total of 40 processors for this job 
+#   (2 nodes and 20 processors(core) per node)
+#PBS -l nodes=2:ppn=20
+# request 4 hours of wall clock time
+#PBS -l walltime=04:00:00
+# combine PBS standard output and error files
+#PBS -j oe 
+# mail is sent to you when the job starts and when it terminates or aborts
+#PBS -m bea
+# specify your email address 
+#PBS -M mark.hagemann@gmail.com.com
+ 
+#change to the directory where you submitted the job 
+cd $PROJDIR
+mkdir qsubtest
+touch qsubtest/test1
+sleep 15
+touch qsubtest/test2
+sleep 15
+touch qsubtest/test3
+exit 0
+
+```
+
+Good. That worked.
+
+
+### Combining netCDFs for Kim
+
+```{r}
+st1 <- open.nc("data/ncdf/nwm.t00z.short_range.channel_rt.f004.conus.nc_georeferenced.nc")
+st2 <- read.nc(st1)
+close.nc(st1)
+
+getNC <- function(filename) {
+  con1 <- open.nc(filename)
+  out <- read.nc(con1)
+  close.nc(con1)
+  out
+}
+
+nclist <- lapply(list.files("data/20151031_runoff/", full.names = TRUE), getNC)
+
+times <- 
+
+RNetCDF::create.nc("data/allRunoff1.ncdf")
+
+```
+
+
+Here's how it should look:
+
+```{r}
+tusc1 <- getNC("data/Tuscaloosa_runoff.nc")
+
+str(tusc1, 1)
+```
+
+
+### Back to GIS computation
+
+Using Bahia Grande as pilot study
+
+Steps:
+
+1. Extract pixels from DEM, shapefile overlay
+    - upload shapefile
+    
+
+### Plotting large dataset
+
+Finally worked!
+
+- Now do this for full DEM set
+- todo$add("make virtual raster for whole DEM set")
+    - todo$add("move ROGER dems to structure mirroring external hd")
+- todo$add("create overview for this big virtual raster")
+
+First issue when making vrt: "Warning 6: gdalbuildvrt does not support heterogenous projection. Skipping dem/ibwc_2011_1m_2698_62_2.dem" etc.
+
+- Try reprojecting all in parallel
+- or use -allow_projection_difference option (though this does not reproject)
+
+todo$add("write batch file for creating overviews")
+
+todo$add("get projection info for usgs, ibwc")
+
+Projection info 
+
+- here's ibwc2006
+
+```
+gdalinfo /media/removable/NWCSI_data/DEM/ibwc_2006_1m_2698_40_2_d_2.dem 
+Driver: USGSDEM/USGS Optional ASCII DEM (and CDED)
+Files: /media/removable/NWCSI_data/DEM/ibwc_2006_1m_2698_40_2_d_2.dem
+Size is 393, 484
+Coordinate System is:
+PROJCS["NAD83 / Texas South",
+    GEOGCS["NAD83",
+        DATUM["North_American_Datum_1983",
+            SPHEROID["GRS 1980",6378137,298.257222101,
+                AUTHORITY["EPSG","7019"]],
+            TOWGS84[0,0,0,0,0,0,0],
+            AUTHORITY["EPSG","6269"]],
+        PRIMEM["Greenwich",0,
+            AUTHORITY["EPSG","8901"]],
+        UNIT["degree",0.0174532925199433,
+            AUTHORITY["EPSG","9122"]],
+        AUTHORITY["EPSG","4269"]],
+    PROJECTION["Lambert_Conformal_Conic_2SP"],
+    PARAMETER["standard_parallel_1",27.83333333333333],
+    PARAMETER["standard_parallel_2",26.16666666666667],
+    PARAMETER["latitude_of_origin",25.66666666666667],
+    PARAMETER["central_meridian",-98.5],
+    PARAMETER["false_easting",984250],
+    PARAMETER["false_northing",16404166.66666667],
+    UNIT["Foot",0.3048006096012192],
+    AXIS["X",EAST],
+    AXIS["Y",NORTH]]
+Origin = (1146664.739580000052229,16691800.074819998815656)
+Pixel Size = (3.280840000000000,-3.280840000000000)
+Metadata:
+  AREA_OR_POINT=Point
+Corner Coordinates:
+Upper Left  ( 1146664.740,16691800.075) ( 98d 0'12.86"W, 26d27'25.53"N)
+Lower Left  ( 1146664.740,16690212.148) ( 98d 0'12.93"W, 26d27' 9.80"N)
+Upper Right ( 1147954.110,16691800.075) ( 97d59'58.67"W, 26d27'25.48"N)
+Lower Right ( 1147954.110,16690212.148) ( 97d59'58.74"W, 26d27' 9.75"N)
+Center      ( 1147309.425,16691006.112) ( 98d 0' 5.80"W, 26d27'17.64"N)
+Band 1 Block=393x484 Type=Float32, ColorInterp=Undefined
+  NoData Value=-32767
+  Unit Type: m
+```
+
+ibwc2011
+
+```
+gdalinfo /media/removable/NWCSI_data/DEM/ibwc_2011_1m_2698_
+ibwc_2011_1m_2698_44_2.dem  ibwc_2011_1m_2698_44_4.dem  ibwc_2011_1m_2698_52_2.dem  
+ibwc_2011_1m_2698_44_3.dem  ibwc_2011_1m_2698_45_3.dem  ibwc_2011_1m_2698_56_4.dem  
+CUAHSI2016:$ gdalinfo /media/removable/NWCSI_data/DEM/ibwc_2011_1m_2698_52_2.dem 
+Driver: USGSDEM/USGS Optional ASCII DEM (and CDED)
+Files: /media/removable/NWCSI_data/DEM/ibwc_2011_1m_2698_52_2.dem
+Size is 7522, 8334
+Coordinate System is:
+PROJCS["UTM Zone 14, Northern Hemisphere",
+    GEOGCS["NAD83",
+        DATUM["North_American_Datum_1983",
+            SPHEROID["GRS 1980",6378137,298.257222101,
+                AUTHORITY["EPSG","7019"]],
+            TOWGS84[0,0,0,0,0,0,0],
+            AUTHORITY["EPSG","6269"]],
+        PRIMEM["Greenwich",0,
+            AUTHORITY["EPSG","8901"]],
+        UNIT["degree",0.0174532925199433,
+            AUTHORITY["EPSG","9108"]],
+        AUTHORITY["EPSG","4269"]],
+    PROJECTION["Transverse_Mercator"],
+    PARAMETER["latitude_of_origin",0],
+    PARAMETER["central_meridian",-99],
+    PARAMETER["scale_factor",0.9996],
+    PARAMETER["false_easting",500000],
+    PARAMETER["false_northing",0],
+    UNIT["Meter",1]]
+Origin = (543064.351441419683397,2904161.798443999607116)
+Pixel Size = (0.999947000000000,-0.999976000000000)
+Metadata:
+  AREA_OR_POINT=Point
+Corner Coordinates:
+Upper Left  (  543064.351, 2904161.798) ( 98d34' 7.51"W, 26d15'23.40"N)
+Lower Left  (  543064.351, 2895827.998) ( 98d34' 8.51"W, 26d10'52.51"N)
+Upper Right (  550585.953, 2904161.798) ( 98d29'36.36"W, 26d15'22.51"N)
+Lower Right (  550585.953, 2895827.998) ( 98d29'37.53"W, 26d10'51.62"N)
+Center      (  546825.152, 2899994.898) ( 98d31'52.48"W, 26d13' 7.53"N)
+Band 1 Block=7522x8334 Type=Float32, ColorInterp=Undefined
+  NoData Value=-32767
+  Unit Type: m
+```
+
+usgs 2008
+
+```
+gdalinfo /media/removable/NWCSI_data/DEM/usgs_2008_1m_2697_
+usgs_2008_1m_2697_17_1.dem  usgs_2008_1m_2697_17_3.dem  usgs_2008_1m_2697_25_1.dem  
+CUAHSI2016:$ gdalinfo /media/removable/NWCSI_data/DEM/usgs_2008_1m_2697_25_1.dem 
+Driver: USGSDEM/USGS Optional ASCII DEM (and CDED)
+Files: /media/removable/NWCSI_data/DEM/usgs_2008_1m_2697_25_1.dem
+Size is 6907, 7671
+Coordinate System is:
+PROJCS["UTM Zone 14, Northern Hemisphere",
+    GEOGCS["NAD83",
+        DATUM["North_American_Datum_1983",
+            SPHEROID["GRS 1980",6378137,298.257222101,
+                AUTHORITY["EPSG","7019"]],
+            TOWGS84[0,0,0,0,0,0,0],
+            AUTHORITY["EPSG","6269"]],
+        PRIMEM["Greenwich",0,
+            AUTHORITY["EPSG","8901"]],
+        UNIT["degree",0.0174532925199433,
+            AUTHORITY["EPSG","9108"]],
+        AUTHORITY["EPSG","4269"]],
+    PROJECTION["Transverse_Mercator"],
+    PARAMETER["latitude_of_origin",0],
+    PARAMETER["central_meridian",-99],
+    PARAMETER["scale_factor",0.9996],
+    PARAMETER["false_easting",500000],
+    PARAMETER["false_northing",0],
+    UNIT["Meter",1]]
+Origin = (599231.260636072838679,2945690.377444499637932)
+Pixel Size = (0.999986000000000,-1.000039000000000)
+Metadata:
+  AREA_OR_POINT=Point
+Corner Coordinates:
+Upper Left  (  599231.261, 2945690.377) ( 98d 0'11.24"W, 26d37'43.06"N)
+Lower Left  (  599231.261, 2938019.078) ( 98d 0'13.40"W, 26d33'33.74"N)
+Upper Right (  606138.164, 2945690.377) ( 97d56' 1.48"W, 26d37'41.25"N)
+Lower Right (  606138.164, 2938019.078) ( 97d56' 3.79"W, 26d33'31.94"N)
+Center      (  602684.712, 2941854.728) ( 97d58' 7.48"W, 26d35'37.51"N)
+Band 1 Block=6907x7671 Type=Float32, ColorInterp=Undefined
+  NoData Value=-32767
+  Unit Type: m
+```
+
+usgs2011
+
+```
+ gdalinfo /media/removable/NWCSI_data/DEM/usgs_2011_2m_2698_29_4.dem 
+Driver: USGSDEM/USGS Optional ASCII DEM (and CDED)
+Files: /media/removable/NWCSI_data/DEM/usgs_2011_2m_2698_29_4.dem
+Size is 3755, 4172
+Coordinate System is:
+PROJCS["UTM Zone 14, Northern Hemisphere",
+    GEOGCS["NAD83",
+        DATUM["North_American_Datum_1983",
+            SPHEROID["GRS 1980",6378137,298.257222101,
+                AUTHORITY["EPSG","7019"]],
+            TOWGS84[0,0,0,0,0,0,0],
+            AUTHORITY["EPSG","6269"]],
+        PRIMEM["Greenwich",0,
+            AUTHORITY["EPSG","8901"]],
+        UNIT["degree",0.0174532925199433,
+            AUTHORITY["EPSG","9108"]],
+        AUTHORITY["EPSG","4269"]],
+    PROJECTION["Transverse_Mercator"],
+    PARAMETER["latitude_of_origin",0],
+    PARAMETER["central_meridian",-99],
+    PARAMETER["scale_factor",0.9996],
+    PARAMETER["false_easting",500000],
+    PARAMETER["false_northing",0],
+    UNIT["Meter",1]]
+Origin = (555397.635084721958265,2938828.056975999847054)
+Pixel Size = (1.999893000000000,-2.000096000000000)
+Metadata:
+  AREA_OR_POINT=Point
+Corner Coordinates:
+Upper Left  (  555397.635, 2938828.057) ( 98d26'37.51"W, 26d34' 8.67"N)
+Lower Left  (  555397.635, 2930483.656) ( 98d26'38.81"W, 26d29'37.45"N)
+Upper Right (  562907.233, 2938828.057) ( 98d22' 6.06"W, 26d34' 7.54"N)
+Lower Right (  562907.233, 2930483.656) ( 98d22' 7.55"W, 26d29'36.32"N)
+Center      (  559152.434, 2934655.857) ( 98d24'22.48"W, 26d31'52.51"N)
+Band 1 Block=3755x4172 Type=Float32, ColorInterp=Undefined
+  NoData Value=-32767
+  Unit Type: m
+```
+
+IBWC2006 is lambert conic?! (that's moronic)
+
+todo$add("reproject everything to same CRS")
+
+I'm finally really using `sed`! Have to modify xml for vrt files since I've restructured the folders. 
+
+- `sed 's_relativeToVRT="0"_relativeToVRT="1"_g' <ibwc06vrt.vrt >ibwc06new.vrt`
+- `sed 's_/home/cgtrn05/arroyo/dem/ibwc/_DEM/_g' <ibwc06new.vrt >ibwc06vrt.vrt`
+
+Looks like reprojection will be faster to do in parallel and then recombine to vrt. 

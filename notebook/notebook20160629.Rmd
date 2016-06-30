@@ -295,3 +295,48 @@ I'm finally really using `sed`! Have to modify xml for vrt files since I've rest
 - `sed 's_/home/cgtrn05/arroyo/dem/ibwc/_DEM/_g' <ibwc06new.vrt >ibwc06vrt.vrt`
 
 Looks like reprojection will be faster to do in parallel and then recombine to vrt. 
+
+todo$add("get index for remaining dems")
+
+
+Submitting the following file to Roger:
+
+```
+#!/bin/bash
+# declare a name for this job to be sample_job
+#PBS -N 
+# request a total of 20 processors for this job 
+#   (1 nodes and 20 processors(core) per node)
+#PBS -l nodes=1:ppn=20
+# request 7 hours of wall clock time
+#PBS -l walltime=07:00:00
+# combine PBS standard output and error files
+#PBS -j oe 
+# mail is sent to you when the job starts and when it terminates or aborts
+#PBS -m bea
+# specify your email address 
+#PBS -M mark.hagemann@gmail.com
+ 
+#change to the directory where you submitted the job 
+cd /projects/nfie/arroyo/
+
+# Make vrt files
+gdalbuildvrt usgsvrt.vrt DEM/usgs*.dem\
+gdalbuildvrt ibwc06vrt.vrt DEM/ibwc_2006*.dem\
+gdalbuildvrt ibwc11vrt.vrt DEM/ibwc_2011*.dem\
+
+
+# Reproject all vrt files
+gdalwarp -t_srs '+proj=utm +zone=14 +datum=NAD83' ibwc06vrt.vrt ibwc06utm.vrt
+gdalwarp -t_srs '+proj=utm +zone=14 +datum=NAD83' ibwc11vrt.vrt ibwc11utm.vrt
+gdalwarp -t_srs '+proj=utm +zone=14 +datum=NAD83' usgsvrt.vrt usgsutm.vrt
+
+# Combine to a single vrt
+gdalbuildvrt allutm.vrt ./*utm.vrt
+
+# build overview for this vrt
+gdaladdo -r average --config COMPRESS_OVERVIEW DEFLATE allutm.vrt 2 4 8 16 32 64 128
+
+exit 0
+
+```

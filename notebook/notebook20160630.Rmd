@@ -1,0 +1,72 @@
+---
+title: "notebook20160630"
+author: "Mark Hagemann"
+date: "June 30, 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Working more with DEM files. Just resubmitted reprojection/overview job.
+
+While I wait, work on the following:
+
+todo$add("Go through notes from yesterday's meeting with Ed")
+todo$add("Subset ibwc06 raster to for Bahia Grande analysis")
+
+From meeting with Ed:
+
+todo$add("Look up USGS channel network/parameterization tools")
+
+
+Now working on Bahia subsetting
+
+- Making of ibwc06_utm.vrt looks to have made a tif (or something) and not a vrt. 
+    - or possible this is just what a big reprojection looks like?
+    todo$add("Reproject all individual DEMs using parallel")
+    
+    
+Current version of bahia.vrt isn't working. Can try the following:
+
+- use differnt gdalwarp to not include `-crop_to_cutline -dstalpha`
+    - nope.
+    - This is what qgis uses in its clipper tool. Trying that now. 
+    - using this with a vrt output appears to work, but can't verify as I don't have an overview for this file. Need to make this online. (?) 
+          - try making locally, just to see.
+- use gdaltranslate as in [here](http://gis.stackexchange.com/a/34798)
+    - get extents from watershed file?
+    - Difficult, since different projection.
+
+- build a new vrt using only files from bahia obtained via spatial overlay of index with watershed shapefile
+
+Trying `gdal_translate -projwin 1338413.98139 16575169.5064 1398951.49683 16529502.9087 -of GTiff /home/markwh/GoogleDrive/CUAHSI2016/passport/ibwc06vrt.vrt /home/markwh/GoogleDrive/CUAHSI2016/passport/bahiaExtentClip.tif`
+
+- Won't work if I try and do this locally--I'll need the server for this. 
+
+
+
+
+### Mindmapping session with Jude
+
+todo$add("Talk to Xing about TauDEM output")
+
+Delineations to compare:
+
+- NHD 
+
+### Later...
+
+- Job for subsetting, making overview for Bahia Grande: **success**
+- Job for creating regionwide vrt, reprojection, vrt, overview: **fail**
+    - Stupid mistakes. *Need to keep an eye on the log files!*
+
+Also, had a look at Bahia DEM. And there are some troubling features. Most notably, there's a rectangle near the coast that has markedly different values from the surrounding. Also some strange diagonal banding that looks to be an artifact of the DEM (not real elevation changes)
+
+- Successfully did reprojection of all ibwc2006 DEMs in parallel using advice from [here](https://wiki.ncsa.illinois.edu/display/ROGER/Using+GNU+Parallel+within+batch+jobs)
+
+- Now trying again to do the big raster vrt and ovr computation, currently queued up. 
+- Also rsyncing the utm reprojections to the external hdd
+
+todo$add("reformat 1TB drive partition, sync with Roger data")

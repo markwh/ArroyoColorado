@@ -13,5 +13,12 @@
 "move ROGER dems to structure mirroring external hd",2016-06-29 15:56:45,2016-06-29 15:59:51,TRUE,12
 "write batch file for creating overviews",2016-06-29 18:35:50,NA,FALSE,13
 "get projection info for usgs, ibwc",2016-06-29 20:05:18,2016-06-29 21:40:20,TRUE,14
-"reproject everything to same CRS",2016-06-29 21:40:09,NA,FALSE,15
+"reproject everything to same CRS",2016-06-29 21:40:09,2016-06-30 23:34:06,TRUE,15
 "get index for remaining dems",2016-06-29 22:37:57,2016-06-29 22:50:42,TRUE,16
+"Go through notes from yesterday's meeting with Ed",2016-06-30 09:49:06,2016-06-30 09:56:29,TRUE,17
+"Subset ibwc06 raster to for Bahia Grande analysis",2016-06-30 09:49:54,2016-06-30 20:05:29,TRUE,18
+"Look up USGS channel network/parameterization tools",2016-06-30 09:51:44,2016-06-30 10:15:21,TRUE,19
+"Reproject all individual DEMs using parallel",2016-06-30 10:38:30,2016-06-30 22:49:03,TRUE,20
+"Talk to Xing about TauDEM output",2016-06-30 11:25:31,2016-06-30 13:45:07,TRUE,21
+"submit job for subsetting to bahia grande",2016-06-30 14:24:32,2016-06-30 15:55:28,TRUE,22
+"reformat 1TB drive partition, sync with Roger data",2016-06-30 23:58:42,NA,FALSE,23

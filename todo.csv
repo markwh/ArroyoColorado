@@ -7,11 +7,11 @@
 "upload all DEMs to Roger",2016-06-27 10:30:13,2016-06-29 09:17:26,TRUE,6
 "build DEM index shapefile",2016-06-27 10:30:14,2016-06-29 09:17:32,TRUE,7
 "Read up on qsub",2016-06-29 09:18:43,2016-06-29 23:35:00,TRUE,8
-"make virtual raster for whole DEM set",2016-06-29 15:12:30,NA,FALSE,9
-"create overview for this big virtual raster",2016-06-29 15:12:31,NA,FALSE,10
+"make virtual raster for whole DEM set",2016-06-29 15:12:30,2016-07-01 11:01:18,TRUE,9
+"create overview for this big virtual raster",2016-06-29 15:12:31,2016-07-01 11:01:21,TRUE,10
 "move ROGER dems to structure mirroring external hd",2016-06-29 15:56:32,2016-06-29 15:59:55,TRUE,11
 "move ROGER dems to structure mirroring external hd",2016-06-29 15:56:45,2016-06-29 15:59:51,TRUE,12
-"write batch file for creating overviews",2016-06-29 18:35:50,NA,FALSE,13
+"write batch file for creating overviews",2016-06-29 18:35:50,2016-07-01 11:01:23,TRUE,13
 "get projection info for usgs, ibwc",2016-06-29 20:05:18,2016-06-29 21:40:20,TRUE,14
 "reproject everything to same CRS",2016-06-29 21:40:09,2016-06-30 23:34:06,TRUE,15
 "get index for remaining dems",2016-06-29 22:37:57,2016-06-29 22:50:42,TRUE,16
@@ -22,3 +22,19 @@
 "Talk to Xing about TauDEM output",2016-06-30 11:25:31,2016-06-30 13:45:07,TRUE,21
 "submit job for subsetting to bahia grande",2016-06-30 14:24:32,2016-06-30 15:55:28,TRUE,22
 "reformat 1TB drive partition, sync with Roger data",2016-06-30 23:58:42,NA,FALSE,23
+"finish rsyncing utm tifs to hdd",2016-07-01 00:07:31,2016-07-05 11:18:32,TRUE,24
+"backup everything to uahpc",2016-07-01 00:07:53,2016-07-05 11:18:25,TRUE,25
+"Run tauDEM network tool on Bahia Grande",2016-07-01 11:01:48,NA,FALSE,26
+"Understand Xing's hydrologic barrier removal tool",2016-07-04 23:47:53,2016-07-05 12:33:49,TRUE,27
+"Do pit remove on Bahia Grande",2016-07-05 00:04:28,NA,FALSE,28
+"Get D8, Dinf flow direction grids",2016-07-05 00:05:00,NA,FALSE,29
+"Get network streams for Bahia",2016-07-05 11:27:49,NA,FALSE,30
+"Get network streams for all of study area",2016-07-05 11:27:59,NA,FALSE,31
+"Go through provided example for flow direction conditioning",2016-07-05 12:34:46,NA,FALSE,32
+"Install TauDEM locally",2016-07-05 12:36:06,NA,FALSE,33
+"compare original Bahia DEM to pit-removed DEM using gdal_calc.py",2016-07-06 15:09:01,NA,FALSE,34
+"Sync local project folder with gdrive",2016-07-06 23:23:07,NA,FALSE,35
+"Extract a different section (not including coastline)",2016-07-07 21:15:22,NA,FALSE,36
+"Do stream raster calculation on new raster section",2016-07-07 21:15:44,NA,FALSE,37
+"Do Peuker Douglas stream raster calculation on Bahia raster",2016-07-07 21:16:30,NA,FALSE,38
+"Burn in streams from Brenda",2016-07-07 21:16:52,NA,FALSE,39

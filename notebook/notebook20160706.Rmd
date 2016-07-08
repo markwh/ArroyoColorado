@@ -1,0 +1,51 @@
+---
+title: "notebook20160706"
+author: "Mark Hagemann"
+date: "July 6, 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Today: trying to get started running TauDEM on rasters.
+
+Using TauDEM web app [here](http://sandbox.cigi.illinois.edu/home/apps.php?app=taudem)
+
+Which operations do I need to perform?
+
+- Stream network and watersheds
+    - Requires stream raster, available from:
+        1. [Contributing area stream raster](https://wiki.cigi.illinois.edu/display/DOC/Contributing+Area+Stream+Raster)
+        2. [Peuker Douglas stream raster](https://wiki.cigi.illinois.edu/display/DOC/Peuker+Douglas+Stream+Raster)
+        3. Slope-area stream raster - not well documented. 
+        4. Contributing area stream raster stream drop threshold
+        5. Peuker Douglas stream raster stream drop threshold
+        6. Slope-area stream raster stream drop threshold
+        
+Looks like I should try both these stream raster tools. Then incorporate Xing's flow condition tool. Based on flowchart on GUI, order of operations is:
+
+- For Contributing Area stream raster
+    1. pit remove
+    2. d8 flow direction
+    3. area8
+    4. Give accumulation threshold
+- For Peuker-Douglas stream raster, same, but add in parallel process
+    1. pit remove
+    2. Peuker Douglas
+    3. area8 (now using both d8 direction and Peuker Douglas stream source)
+
+
+So checking back a while later
+
+- pit removal worked
+- flow direction reached timeout
+
+Trying again using 5 hour wall time, 2 nodes
+
+- Still failed after creating pit-removed DEM, while trying to resolve flats. 
+
+todo$add("compare original Bahia DEM to pit-removed DEM using gdal_calc.py")
+
+

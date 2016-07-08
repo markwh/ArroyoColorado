@@ -45,7 +45,7 @@ Might want to try extending to larger levels if this is slow to render. For exam
 
 Well the internet connection cut out after about 15% completion on the overview calculation.
 
-- Trying to keep it running after logout. Using advice [here](http://stackoverflow.com/a/954415)
+- Trying to keep ssh process running after logout using `disown`. Using advice [here](http://stackoverflow.com/a/954415)
     - Didn't work in this case, since `qsub` exists on disconnect. Need to learn more about this. todo$add("Read up on qsub")
     
 ### Re: PBS, qsub

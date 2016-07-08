@@ -1,0 +1,21 @@
+---
+title: "notebook20160707"
+author: "Mark Hagemann"
+date: "July 7, 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Working on syncing with google drive. 
+
+- This is part of a much larger issue--syncing my GoogleDrive folders on this machine and my windows machine. 
+
+Trying again with getting stream raster
+
+todo$add("Extract a different section (not including coastline)")
+todo$add("Do stream raster calculation on new raster section")
+todo$add("Do Peuker Douglas stream raster calculation on Bahia raster")
+todo$add("Burn in streams from Brenda")

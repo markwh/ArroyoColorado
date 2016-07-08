@@ -1,0 +1,17 @@
+---
+title: "notebook20160701"
+author: "Mark Hagemann"
+date: "July 1, 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Ran a batch job overnight to get entire area's vrt, ovr using proper crs and band characteristics. Now trying to migrate to external hd, but running into internet issues. 
+
+- Trying [lftp](http://lftp.yar.ru/lftp-man.html) following advice [here](http://unix.stackexchange.com/a/91605)
+    - further resources (more helpful) [here](http://www.russbrooks.com/2010/11/19/lftp-cheetsheet)
+
+

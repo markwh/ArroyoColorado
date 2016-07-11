@@ -1,0 +1,58 @@
+---
+title: "notebook20160710"
+author: "Mark Hagemann"
+date: "July 10, 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Today: troubleshooting TauDEM output. 
+
+To review, the workflow I've been using for getting stream rasters is:
+
+1. pit remove `$taudem/pitremove` - ouptuts **DEMfel.tif**
+2. d8 flow direction `$taudem/d8flowdir` - outputs 
+    - **DEMp.tif** (flow direction) and 
+    - **DEMsd8.tif** (slope)
+3. d8 contributing area `$taudem/aread8` - outputs **DEMssa.tif**
+4. accumulation threshold `$taudem/threshold` - outputs **DEMsrc.tif**
+
+Which of these worked?
+
+1. yes
+2. DEMp: yes; DEMsd8: yes
+3. YES! (it was just not plotting it properly)
+4. NO (?) 
+todo$add("Rerun taudem threshold on Rancho Viejo DEMssa.tif")
+    - Do I need a larger threshold? (currently using 1) 
+    - According to Taudem CLI guide, I do, since current threshold is >= 1
+    - Which threshold should I use?
+        - Probably use at least 10000 (but ~~be sure to specify as 1.0E5~~ Actually, not sure why, but renaming after the fact breaks the plotting.)
+
+todo$add("rsync Roger arroyo directory with ext4 external drive")
+todo$add("rsync Roger arroyo/rogerRuns directory with local rogerRuns directory")
+todo$add("document workflow for Roger runs")
+todo$add("improve roger workflow using more generic, modular scripts")
+todo$add("Figure out how to use streamnet, as `Streamnet` function does not work.")
+
+
+Can I load environment variables that will then be accessible in a Roger job?
+
+- No. 
+- May have to edit each script manually. 
+    - Make a checklist?
+    
+todo$add("Make Roger run checklist") 
+
+todo$add("Get vector streamlines from Rancho Viejo")
+todo$add("Try running stream script for entire study area")
+
+Trying now to get streamlines for rancho viejo. Seems like it automatically expects certain files to be present in the directory. Also, needs ssa to be ad8. 
+
+Calling it a night. But having trouble with streamnet function. I get the error "failed to create directory for shapefile datastore", although other files (not shapefiles) are produced. 
+
+Also, started a run for entire study area. See how that goes. I gave it a lot of power and time.
+

@@ -28,13 +28,28 @@
 "Understand Xing's hydrologic barrier removal tool",2016-07-04 23:47:53,2016-07-05 12:33:49,TRUE,27
 "Do pit remove on Bahia Grande",2016-07-05 00:04:28,NA,FALSE,28
 "Get D8, Dinf flow direction grids",2016-07-05 00:05:00,NA,FALSE,29
-"Get network streams for Bahia",2016-07-05 11:27:49,NA,FALSE,30
+"Get network streams for Bahia",2016-07-05 11:27:49,2016-07-08 11:01:14,TRUE,30
 "Get network streams for all of study area",2016-07-05 11:27:59,NA,FALSE,31
 "Go through provided example for flow direction conditioning",2016-07-05 12:34:46,NA,FALSE,32
 "Install TauDEM locally",2016-07-05 12:36:06,NA,FALSE,33
 "compare original Bahia DEM to pit-removed DEM using gdal_calc.py",2016-07-06 15:09:01,NA,FALSE,34
 "Sync local project folder with gdrive",2016-07-06 23:23:07,NA,FALSE,35
-"Extract a different section (not including coastline)",2016-07-07 21:15:22,NA,FALSE,36
+"Extract a different section (not including coastline)",2016-07-07 21:15:22,2016-07-08 11:00:58,TRUE,36
 "Do stream raster calculation on new raster section",2016-07-07 21:15:44,NA,FALSE,37
 "Do Peuker Douglas stream raster calculation on Bahia raster",2016-07-07 21:16:30,NA,FALSE,38
 "Burn in streams from Brenda",2016-07-07 21:16:52,NA,FALSE,39
+"create qgis project with all relevant layers",2016-07-08 09:37:21,2016-07-08 11:02:11,TRUE,40
+"Make spreadsheet to keep track of Roger runs",2016-07-08 11:02:05,2016-07-08 11:33:51,TRUE,41
+"migrate all roger run files to self-contained directories",2016-07-08 11:10:47,NA,FALSE,42
+"try again extracting a raster based on a shapefile",2016-07-08 12:09:19,2016-07-10 13:40:08,TRUE,43
+"run HAND commands specifically using new subset DEM",2016-07-08 15:41:11,NA,FALSE,44
+"find out if I should be checking edge contamination using -nc flag",2016-07-08 19:23:10,NA,FALSE,45
+"check on contributing area, possibly rerun calculation",2016-07-09 00:43:19,2016-07-10 13:39:48,TRUE,46
+"put tifs on irods",2016-07-09 20:59:21,NA,FALSE,47
+"rsync Roger arroyo directory with ext4 external drive",2016-07-10 11:55:09,NA,FALSE,48
+"rsync Roger arroyo/rogerRuns directory with local rogerRuns directory",2016-07-10 11:55:32,2016-07-10 13:31:40,TRUE,49
+"document workflow for Roger runs",2016-07-10 11:56:23,NA,FALSE,50
+"improve roger workflow using more generic, modular scripts",2016-07-10 12:01:31,NA,FALSE,51
+"Make Roger run checklist",2016-07-10 12:50:27,2016-07-10 22:33:20,TRUE,52
+"Get vector streamlines from Rancho Viejo",2016-07-10 23:03:39,NA,FALSE,53
+"Try running stream script for entire study area",2016-07-10 23:03:59,NA,FALSE,54

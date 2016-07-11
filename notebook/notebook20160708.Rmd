@@ -1,0 +1,25 @@
+---
+title: "notebook20160708"
+author: "Mark Hagemann"
+date: "July 8, 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Today: Submit a bunch of jobs to Roger, see what sticks
+
+todo$add("create qgis project with all relevant layers")
+
+todo$add("Make spreadsheet to keep track of Roger runs")
+
+todo$add("migrate all roger run files to self-contained directories")
+
+
+Working again on flow direction condition.
+
+todo$add("try again extracting a raster based on a shapefile")
+
+todo$add("run HAND commands specifically using new subset DEM")

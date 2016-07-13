@@ -1,0 +1,38 @@
+---
+title: "notebook20160712"
+author: "Mark Hagemann"
+date: "July 12, 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Today Roger is down. Other stuff to work on:
+
+- project writeup
+    - make figures
+    - make tables
+- sharing Roger results
+- tidying local directory
+
+Cleanup to do on ROGER, once I have access again:
+
+- merge rogerRuns directories
+- remove ranchoViejo/flowCondition/streamnet subdirectory
+
+
+Figures for writeup
+
+- GIS
+    - indices of DEMs
+    - study area overview
+- schematic
+    - workflow
+    
+    
+Roger is back up early!
+
+todo$add("add Taudem functions as environment variables, updating as per Xing's email")
+

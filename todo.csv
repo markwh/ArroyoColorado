@@ -46,10 +46,23 @@
 "find out if I should be checking edge contamination using -nc flag",2016-07-08 19:23:10,NA,FALSE,45
 "check on contributing area, possibly rerun calculation",2016-07-09 00:43:19,2016-07-10 13:39:48,TRUE,46
 "put tifs on irods",2016-07-09 20:59:21,NA,FALSE,47
-"rsync Roger arroyo directory with ext4 external drive",2016-07-10 11:55:09,NA,FALSE,48
+"rsync Roger arroyo directory with ext4 external drive",2016-07-10 11:55:09,2016-07-11 10:08:15,TRUE,48
 "rsync Roger arroyo/rogerRuns directory with local rogerRuns directory",2016-07-10 11:55:32,2016-07-10 13:31:40,TRUE,49
 "document workflow for Roger runs",2016-07-10 11:56:23,NA,FALSE,50
 "improve roger workflow using more generic, modular scripts",2016-07-10 12:01:31,NA,FALSE,51
 "Make Roger run checklist",2016-07-10 12:50:27,2016-07-10 22:33:20,TRUE,52
 "Get vector streamlines from Rancho Viejo",2016-07-10 23:03:39,NA,FALSE,53
 "Try running stream script for entire study area",2016-07-10 23:03:59,NA,FALSE,54
+"Familiarize with gdal_calc.py. Is this suitable for comparing against 10m DEMs?",2016-07-11 10:21:22,NA,FALSE,55
+"obtain existing 10m DEM products",2016-07-11 10:30:03,NA,FALSE,56
+"resample 10m DEM to 1-m resolution",2016-07-11 10:30:21,NA,FALSE,57
+"run HAND on rancho viejo using Brenda's shapefiles",2016-07-11 11:14:48,NA,FALSE,58
+"burn in Brenda's streams for Rancho Viejo",2016-07-11 11:26:19,2016-07-11 14:42:46,TRUE,59
+"put raster products into gdrive folder",2016-07-11 11:40:24,2016-07-12 12:42:03,TRUE,60
+"troubleshoot streamnet error",2016-07-11 12:12:28,2016-07-11 17:20:19,TRUE,61
+"try using taudem streamnet from v. 5.3.1",2016-07-11 16:18:21,2016-07-11 16:34:08,TRUE,62
+"get streamnet output for burnt-in raster",2016-07-11 18:33:08,2016-07-11 19:29:21,TRUE,63
+"reread documentation of stream condition program",2016-07-11 18:43:43,NA,FALSE,64
+"add Taudem functions as environment variables, updating as per Xing's email",2016-07-12 18:38:49,2016-07-13 17:10:56,TRUE,65
+"Make another virtual raster for 1-m ibwc only",2016-07-13 12:21:21,2016-07-13 17:10:06,TRUE,66
+"Extract from shapefile as per the area of interest specified by Jude--where the population is",2016-07-13 12:23:45,2016-07-13 17:10:22,TRUE,67

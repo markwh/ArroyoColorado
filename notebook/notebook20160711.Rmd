@@ -1,0 +1,44 @@
+---
+title: "notebook20160711"
+author: "Mark Hagemann"
+date: "July 11, 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+This is the start of the final week. Need to think about what we're going to present. Think about: 
+
+- comparing files
+    - stream network vectors
+    - TauDEM rasters
+        - HAND
+        - DEM
+
+todo$add("Familiarize with gdal_calc.py. Is this suitable for comparing against 10m DEMs?")
+
+- Probably won't work, unless I can split into same resolution. Quoth the header info: "all files must have the same dimensions, but no projection checking is performed"
+
+todo$add("obtain existing 10m DEM products")
+todo$add("resample 10m DEM to 1-m resolution")
+
+
+todo$add("run HAND on rancho viejo using Brenda's shapefiles")
+
+todo$add("burn in Brenda's streams for Rancho Viejo")
+todo$add("put raster products into gdrive folder")
+todo$add("troubleshoot streamnet error")
+
+todo$add("try using taudem streamnet from v. 5.3.1")
+
+- This worked!
+- Now modify script to do this better
+- How can I get the watershed delineations?
+
+todo$add("get streamnet output for burnt-in raster")
+
+- for burnt-in raster, need to calculate contributing area
+
+todo$add("reread documentation of stream condition program")

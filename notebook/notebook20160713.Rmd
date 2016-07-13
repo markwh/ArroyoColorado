@@ -1,0 +1,25 @@
+---
+title: "notebook20160713"
+author: "Mark Hagemann"
+date: "July 13, 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Got a list of things to do today. Talked with Jude earlier this morning.
+
+todo$add("Make another virtual raster for 1-m ibwc only")
+
+- Prioritize 2011 DEMs. From [documentation](http://www.gdal.org/gdalbuildvrt.html), that means listing 2011 *last* when building the vrt.
+
+todo$add("Extract from shapefile as per the area of interest specified by Jude--where the population is")
+
+Managed to get through some major points
+
+- Got a Roger job submitted for the ship channel area using new 1-m vrt. Although it's taking an awful long time with the gdal_calc.py.
+- Got subbasins (I had them all along--kinda) from streamnet function. Needed to first give a much larger threshold for these to be useful. This required my working through the examples given in the [TauDEM documentation](http://hydrology.usu.edu/taudem/taudem5/TauDEM53CommandLineGuide.pdf) command line guide. Used example dataset from [this website](http://hydrology.usu.edu/taudem/taudem5/documentation.html)
+
+I think I'll call it a day on this (for now)
